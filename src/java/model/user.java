@@ -9,7 +9,7 @@ package model;
  *
  * @author BaoPhuc
  */
-public class user {
+public class User {
     private int user_id,gender;
     private String username;
     private String password;
@@ -22,7 +22,7 @@ public class user {
     private String phone;
     private String email;
 
-    public user(int user_id, String username, String password, String first_name, String last_name, String date_of_birth, String avatar, String country, String hobby, String phone, String email) {
+    public User(int user_id, String username, String password, String first_name, String last_name, String date_of_birth, String avatar, String country, String hobby, String phone, String email) {
         this.user_id = user_id;
         this.gender = gender;
         this.username = username;
@@ -37,7 +37,7 @@ public class user {
         this.email = email;
     }
 
-    public user() {
+    public User() {
        
     }
 

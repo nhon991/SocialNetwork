@@ -18,13 +18,14 @@ public class DBConnect_MySQL {
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             if (cons == null) {
-                cons = DriverManager.getConnection("jdbc:mysql://localhost/social_network?user=root&password=123456");
+                cons = DriverManager.getConnection("jdbc:mysql://localhost/socialnetworkdb?user=root&password=root");
                 System.out.println("Ket noi thanh cong");
             }
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println(e.toString());
         }
+        if(cons!=null) System.out.println("Thanh cong");
         return cons;
     }
     public static void main(String[] args){
