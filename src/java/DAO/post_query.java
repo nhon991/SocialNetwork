@@ -36,12 +36,12 @@ public class post_query {
         try {
             props.load(instr);
         } catch (IOException ex) {
-            Logger.getLogger(user_dao_query.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(post_query.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
             instr.close();
         } catch (IOException ex) {
-            Logger.getLogger(user_dao_query.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(post_query.class.getName()).log(Level.SEVERE, null, ex);
         }
         String driver = props.getProperty("driver.name");
         String url = props.getProperty("server.name");
@@ -51,12 +51,12 @@ public class post_query {
         try {
             Class.forName(driver);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(user_dao_query.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(post_query.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
             conn = (Connection) DriverManager.getConnection(url, username, password);
         } catch (SQLException ex) {
-            Logger.getLogger(user_dao_query.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(post_query.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

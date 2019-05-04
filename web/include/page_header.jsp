@@ -9,11 +9,12 @@
 		
 
 
+            
 		<header>
 			<div class="container">
 				<div class="header-data">
 					<div class="logo">
-						<a href="index.html" title=""><img src="public/images/logo.png" alt=""></a>
+						<a href="index.html" title=""><img src="images/logo.png" alt=""></a>
 					</div><!--logo end-->
 					<div class="search-bar">
 						<form>
@@ -25,41 +26,19 @@
 						<ul>
 							<li>
 								<a href="index.html" title="">
-									<span><img src="public/images/icon1.png" alt=""></span>
+									<span><img src="images/icon1.png" alt=""></span>
 									Home
 								</a>
 							</li>
 							<li>
-								<a href="companies.html" title="">
-									<span><img src="public/images/icon2.png" alt=""></span>
-									Companies
-								</a>
-							</li>
-							<li>
-								<a href="projects.html" title="">
-									<span><img src="public/images/icon3.png" alt=""></span>
-									Projects
-								</a>
-							</li>
-							<li>
-								<a href="profiles.html" title="">
-									<span><img src="public/images/icon4.png" alt=""></span>
-									Profiles
-								</a>
-								<ul>
-									<li><a href="user-profile.html" title="">User Profile</a></li>
-									<li><a href="my-profile-feed.html" title="">my-profile-feed</a></li>
-								</ul>
-							</li>
-							<li>
-								<a href="jobs.html" title="">
-									<span><img src="public/images/icon5.png" alt=""></span>
-									Jobs
+								<a href="Restaurant.html" title="">
+									<span><img src="images/icon5.png" alt=""></span>
+									Restaurant
 								</a>
 							</li>
 							<li>
 								<a href="#" title="" class="not-box-open">
-									<span><img src="public/images/icon6.png" alt=""></span>
+									<span><img src="images/icon6.png" alt=""></span>
 									Messages
 								</a>
 								<div class="notification-box msg">
@@ -106,7 +85,7 @@
 							</li>
 							<li>
 								<a href="#" title="" class="not-box-open">
-									<span><img src="public/images/icon7.png" alt=""></span>
+									<span><img src="images/icon7.png" alt=""></span>
 									Notification
 								</a>
 								<div class="notification-box">

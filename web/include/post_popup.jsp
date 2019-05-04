@@ -106,13 +106,13 @@
 		<div class="chatbox-list">
 			<div class="chatbox">
 				<div class="chat-mg">
-					<a href="#" title=""><img src="public/images/resources/usr-img1.png" alt=""></a>
+					<a href="#" title=""><img src="public/public/images/resources/usr-img1.png" alt=""></a>
 					<span>2</span>
 				</div>
 				<div class="conversation-box">
 					<div class="con-title mg-3">
 						<div class="chat-user-info">
-							<img src="public/images/resources/us-img1.png" alt="">
+							<img src="public/public/images/resources/us-img1.png" alt="">
 							<h3>John Doe <span class="status-info"></span></h3>
 						</div>
 						<div class="st-icons">
@@ -153,12 +153,12 @@
 			</div>
 			<div class="chatbox">
 				<div class="chat-mg">
-					<a href="#" title=""><img src="public/images/resources/usr-img2.png" alt=""></a>
+					<a href="#" title=""><img src="public/public/images/resources/usr-img2.png" alt=""></a>
 				</div>
 				<div class="conversation-box">
 					<div class="con-title mg-3">
 						<div class="chat-user-info">
-							<img src="public/images/resources/us-img1.png" alt="">
+							<img src="public/public/images/resources/us-img1.png" alt="">
 							<h3>John Doe <span class="status-info"></span></h3>
 						</div>
 						<div class="st-icons">
@@ -210,7 +210,7 @@
 					<div class="chat-list">
 						<div class="conv-list active">
 							<div class="usrr-pic">
-								<img src="public/images/resources/usy1.png" alt="">
+								<img src="public/public/images/resources/usy1.png" alt="">
 								<span class="active-status activee"></span>
 							</div>
 							<div class="usy-info">
@@ -224,7 +224,7 @@
 						</div>
 						<div class="conv-list">
 							<div class="usrr-pic">
-								<img src="public/images/resources/usy2.png" alt="">
+								<img src="public/public/images/resources/usy2.png" alt="">
 							</div>
 							<div class="usy-info">
 								<h3>John Doe</h3>
@@ -236,7 +236,7 @@
 						</div>
 						<div class="conv-list">
 							<div class="usrr-pic">
-								<img src="public/images/resources/usy3.png" alt="">
+								<img src="public/public/images/resources/usy3.png" alt="">
 							</div>
 							<div class="usy-info">
 								<h3>John Doe</h3>

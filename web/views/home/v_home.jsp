@@ -1,4 +1,3 @@
-		<main>
 			<div class="main-section">
 				<div class="container">
 					<div class="main-section-data">
@@ -19,23 +18,28 @@
 										</div><!--user-profile end-->
 										<ul class="user-fw-status">
 											<li>
-												<h4>Following</h4>
+												<h4>Friends</h4>
 												<span>34</span>
 											</li>
 											<li>
-												<h4>Followers</h4>
-												<span>155</span>
+												<h4>Saved restaurant</h4>
+												<span>3</span>
+											</li>
+											<li>
+												<h4>Review</h4>
+												<span>5</span>
 											</li>
 											<li>
 												<a href="#" title="">View Profile</a>
 											</li>
 										</ul>
 									</div><!--user-data end-->
+									<!--
 									<div class="suggestions full-width">
 										<div class="sd-title">
 											<h3>Suggestions</h3>
 											<i class="la la-ellipsis-v"></i>
-										</div><!--sd-title end-->
+										</div>
 										<div class="suggestions-list">
 											<div class="suggestion-usd">
 												<img src="public/images/resources/s1.png" alt="">
@@ -88,8 +92,8 @@
 											<div class="view-more">
 												<a href="#" title="">View More</a>
 											</div>
-										</div><!--suggestions-list end-->
-									</div><!--suggestions end-->
+										</div>
+									</div>
 									<div class="tags-sec full-width">
 										<ul>
 											<li><a href="#" title="">Help Center</a></li>
@@ -102,25 +106,67 @@
 											<li><a href="#" title="">Copyright Policy</a></li>
 										</ul>
 										<div class="cp-sec">
-											<img src="public/images/logo2.png" alt="">
-											<p><img src="public/images/cp.png" alt="">Copyright 2017</p>
+											<img src="images/logo2.png" alt="">
+											<p><img src="images/cp.png" alt="">Copyright 2017</p>
 										</div>
-									</div><!--tags-sec end-->
-								</div><!--main-left-sidebar end-->
+									</div>
+								-->
+								</div>
 							</div>
+							
 							<div class="col-lg-6 col-md-8 no-pd">
-								<div class="main-ws-sec">
-									<div class="post-topbar">
-										<div class="user-picy">
-											<img src="public/images/resources/user-pic.png" alt="">
-										</div>
-										<div class="post-st">
-											<ul>
-												<li><a class="post_project" href="#" title="">Post a Project</a></li>
-												<li><a class="post-jb active" href="#" title="">Post a Job</a></li>
-											</ul>
-										</div><!--post-st end-->
-									</div><!--post-topbar end-->
+									<div class="main-ws-sec">
+										<div class="card">
+												<div class="card-header">
+													<ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+														<li class="nav-item">
+															<a class="nav-link active" id="posts-tab" data-toggle="tab" href="#posts" role="tab" aria-controls="posts" aria-selected="true">Write
+																something
+															</a>
+														</li>
+														<li class="nav-item">
+															<a class="nav-link" id="images-tab" data-toggle="tab" role="tab" aria-controls="images" aria-selected="false" href="#images">Images</a>
+														</li>
+													</ul>
+												</div>
+												<div class="card-body">
+													<div class="tab-content" id="myTabContent">
+														<div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
+															<div class="form-group">
+																<label class="sr-only" for="message">post</label>
+																<textarea class="form-control" id="message" rows="3" placeholder="What are you thinking?"></textarea>
+															</div>
+							
+														</div>
+														<div class="tab-pane fade" id="images" role="tabpanel" aria-labelledby="images-tab">
+															<div class="form-group">
+																<div class="custom-file">
+																	<input type="file" class="custom-file-input" id="customFile">
+																	<label class="custom-file-label" for="customFile">Upload image</label>
+																</div>
+															</div>
+															<div class="py-4"></div>
+														</div>
+													</div>
+													<div class="btn-toolbar justify-content-between">
+														<div class="btn-group">
+															<button type="submit" class="btn btn-primary">Post</button>
+														</div>
+														<div class="btn-group">
+															<button id="btnGroupDrop1" type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+																aria-expanded="false">
+																<i class="fa fa-globe"></i>
+															</button>
+															<div class="dropdown-menu dropdown-menu-right" aria-labelledby="btnGroupDrop1">
+																<a class="dropdown-item" href="#"><i class="fa fa-globe"></i> Public</a>
+																<a class="dropdown-item" href="#"><i class="fa fa-users"></i> Friends</a>
+																<a class="dropdown-item" href="#"><i class="fa fa-user"></i> Just me</a>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+
 									<div class="posts-section">
 										<div class="post-bar">
 											<div class="post_topbar">
@@ -128,7 +174,7 @@
 													<img src="public/images/resources/us-pic.png" alt="">
 													<div class="usy-name">
 														<h3>John Doe</h3>
-														<span><img src="public/images/clock.png" alt="">3 min ago</span>
+														<span><img src="images/clock.png" alt="">3 min ago</span>
 													</div>
 												</div>
 												<div class="ed-opts">
@@ -144,8 +190,8 @@
 											</div>
 											<div class="epi-sec">
 												<ul class="descp">
-													<li><img src="public/images/icon8.png" alt=""><span>Epic Coder</span></li>
-													<li><img src="public/images/icon9.png" alt=""><span>India</span></li>
+													<li><img src="images/icon8.png" alt=""><span>Epic Coder</span></li>
+													<li><img src="images/icon9.png" alt=""><span>India</span></li>
 												</ul>
 												<ul class="bk-links">
 													<li><a href="#" title=""><i class="la la-bookmark"></i></a></li>
@@ -171,10 +217,10 @@
 												<ul class="like-com">
 													<li>
 														<a href="#"><i class="la la-heart"></i> Like</a>
-														<img src="public/images/liked-img.png" alt="">
+														<img src="images/liked-img.png" alt="">
 														<span>25</span>
 													</li> 
-													<li><a href="#" title="" class="com"><img src="public/images/com.png" alt=""> Comment 15</a></li>
+													<li><a href="#" title="" class="com"><img src="images/com.png" alt=""> Comment 15</a></li>
 												</ul>
 												<a><i class="la la-eye"></i>Views 50</a>
 											</div>
@@ -191,7 +237,7 @@
 													<span>Graphic Designer</span>
 													<ul>
 														<li><a href="#" title="" class="followw">Follow</a></li>
-														<li><a href="#" title="" class="envlp"><img src="public/images/envelop.png" alt=""></a></li>
+														<li><a href="#" title="" class="envlp"><img src="images/envelop.png" alt=""></a></li>
 														<li><a href="#" title="" class="hire">hire</a></li>
 													</ul>
 													<a href="#" title="">View Profile</a>
@@ -202,7 +248,7 @@
 													<span>Graphic Designer</span>
 													<ul>
 														<li><a href="#" title="" class="followw">Follow</a></li>
-														<li><a href="#" title="" class="envlp"><img src="public/images/envelop.png" alt=""></a></li>
+														<li><a href="#" title="" class="envlp"><img src="images/envelop.png" alt=""></a></li>
 														<li><a href="#" title="" class="hire">hire</a></li>
 													</ul>
 													<a href="#" title="">View Profile</a>
@@ -213,7 +259,7 @@
 													<span>Graphic Designer</span>
 													<ul>
 														<li><a href="#" title="" class="followw">Follow</a></li>
-														<li><a href="#" title="" class="envlp"><img src="public/images/envelop.png" alt=""></a></li>
+														<li><a href="#" title="" class="envlp"><img src="images/envelop.png" alt=""></a></li>
 														<li><a href="#" title="" class="hire">hire</a></li>
 													</ul>
 													<a href="#" title="">View Profile</a>
@@ -224,7 +270,7 @@
 													<span>Graphic Designer</span>
 													<ul>
 														<li><a href="#" title="" class="followw">Follow</a></li>
-														<li><a href="#" title="" class="envlp"><img src="public/images/envelop.png" alt=""></a></li>
+														<li><a href="#" title="" class="envlp"><img src="images/envelop.png" alt=""></a></li>
 														<li><a href="#" title="" class="hire">hire</a></li>
 													</ul>
 													<a href="#" title="">View Profile</a>
@@ -235,7 +281,7 @@
 													<span>Graphic Designer</span>
 													<ul>
 														<li><a href="#" title="" class="followw">Follow</a></li>
-														<li><a href="#" title="" class="envlp"><img src="public/images/envelop.png" alt=""></a></li>
+														<li><a href="#" title="" class="envlp"><img src="images/envelop.png" alt=""></a></li>
 														<li><a href="#" title="" class="hire">hire</a></li>
 													</ul>
 													<a href="#" title="">View Profile</a>
@@ -246,7 +292,7 @@
 													<span>Graphic Designer</span>
 													<ul>
 														<li><a href="#" title="" class="followw">Follow</a></li>
-														<li><a href="#" title="" class="envlp"><img src="public/images/envelop.png" alt=""></a></li>
+														<li><a href="#" title="" class="envlp"><img src="images/envelop.png" alt=""></a></li>
 														<li><a href="#" title="" class="hire">hire</a></li>
 													</ul>
 													<a href="#" title="">View Profile</a>
@@ -259,7 +305,7 @@
 													<img src="public/images/resources/us-pic.png" alt="">
 													<div class="usy-name">
 														<h3>John Doe</h3>
-														<span><img src="public/images/clock.png" alt="">3 min ago</span>
+														<span><img src="images/clock.png" alt="">3 min ago</span>
 													</div>
 												</div>
 												<div class="ed-opts">
@@ -275,8 +321,8 @@
 											</div>
 											<div class="epi-sec">
 												<ul class="descp">
-													<li><img src="public/images/icon8.png" alt=""><span>Epic Coder</span></li>
-													<li><img src="public/images/icon9.png" alt=""><span>India</span></li>
+													<li><img src="images/icon8.png" alt=""><span>Epic Coder</span></li>
+													<li><img src="images/icon9.png" alt=""><span>India</span></li>
 												</ul>
 												<ul class="bk-links">
 													<li><a href="#" title=""><i class="la la-bookmark"></i></a></li>
@@ -303,10 +349,10 @@
 												<ul class="like-com">
 													<li>
 														<a href="#"><i class="la la-heart"></i> Like</a>
-														<img src="public/images/liked-img.png" alt="">
+														<img src="images/liked-img.png" alt="">
 														<span>25</span>
 													</li> 
-													<li><a href="#" title="" class="com"><img src="public/images/com.png" alt=""> Comment 15</a></li>
+													<li><a href="#" title="" class="com"><img src="images/com.png" alt=""> Comment 15</a></li>
 												</ul>
 												<a><i class="la la-eye"></i>Views 50</a>
 											</div>
@@ -318,7 +364,7 @@
 														<img src="public/images/resources/us-pc2.png" alt="">
 														<div class="usy-name">
 															<h3>John Doe</h3>
-															<span><img src="public/images/clock.png" alt="">3 min ago</span>
+															<span><img src="images/clock.png" alt="">3 min ago</span>
 														</div>
 													</div>
 													<div class="ed-opts">
@@ -334,8 +380,8 @@
 												</div>
 												<div class="epi-sec">
 													<ul class="descp">
-														<li><img src="public/images/icon8.png" alt=""><span>Epic Coder</span></li>
-														<li><img src="public/images/icon9.png" alt=""><span>India</span></li>
+														<li><img src="images/icon8.png" alt=""><span>Epic Coder</span></li>
+														<li><img src="images/icon9.png" alt=""><span>India</span></li>
 													</ul>
 													<ul class="bk-links">
 														<li><a href="#" title=""><i class="la la-bookmark"></i></a></li>
@@ -361,10 +407,10 @@
 													<ul class="like-com">
 														<li>
 															<a href="#"><i class="la la-heart"></i> Like</a>
-															<img src="public/images/liked-img.png" alt="">
+															<img src="images/liked-img.png" alt="">
 															<span>25</span>
 														</li> 
-														<li><a href="#" title="" class="com"><img src="public/images/com.png" alt=""> Comment 15</a></li>
+														<li><a href="#" title="" class="com"><img src="images/com.png" alt=""> Comment 15</a></li>
 													</ul>
 													<a><i class="la la-eye"></i>Views 50</a>
 												</div>
@@ -382,7 +428,7 @@
 																</div>
 																<div class="comment">
 																	<h3>John Doe</h3>
-																	<span><img src="public/images/clock.png" alt=""> 3 min ago</span>
+																	<span><img src="images/clock.png" alt=""> 3 min ago</span>
 																	<p>Lorem ipsum dolor sit amet, </p>
 																	<a href="#" title="" class="active"><i class="fa fa-reply-all"></i>Reply</a>
 																</div>
@@ -395,7 +441,7 @@
 																		</div>
 																		<div class="comment">
 																			<h3>John Doe</h3>
-																			<span><img src="public/images/clock.png" alt=""> 3 min ago</span>
+																			<span><img src="images/clock.png" alt=""> 3 min ago</span>
 																			<p>Hi John </p>
 																			<a href="#" title=""><i class="fa fa-reply-all"></i>Reply</a>
 																		</div>
@@ -410,7 +456,7 @@
 																</div>
 																<div class="comment">
 																	<h3>John Doe</h3>
-																	<span><img src="public/images/clock.png" alt=""> 3 min ago</span>
+																	<span><img src="images/clock.png" alt=""> 3 min ago</span>
 																	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam luctus hendrerit metus, ut ullamcorper quam finibus at.</p>
 																	<a href="#" title=""><i class="fa fa-reply-all"></i>Reply</a>
 																</div>
@@ -432,7 +478,7 @@
 											</div><!--comment-section end-->
 										</div><!--posty end-->
 										<div class="process-comm">
-											<a href="#" title=""><img src="public/images/process-icon.png" alt=""></a>
+											<a href="#" title=""><img src="images/process-icon.png" alt=""></a>
 										</div><!--process-comm end-->
 									</div><!--posts-section end-->
 								</div><!--main-ws-sec end-->
@@ -440,7 +486,7 @@
 							<div class="col-lg-3 pd-right-none no-pd">
 								<div class="right-sidebar">
 									<div class="widget widget-about">
-										<img src="public/images/wd-logo.png" alt="">
+										<img src="images/wd-logo.png" alt="">
 										<h3>Track Time on Workwise</h3>
 										<span>Pay only for the Hours worked</span>
 										<div class="sign_link">

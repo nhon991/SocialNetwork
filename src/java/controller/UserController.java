@@ -93,24 +93,66 @@ public class UserController extends HttpServlet {
                     user = usrQuery.loginUser(userName, password);
                     if (user!=null) {
                         url = "/index";
-                       // view="view/v_home";
                     }
                     else{
                         url = "/Login";
                     }
-                    RequestDispatcher dis = request.getRequestDispatcher(url);
-                    dis.forward(request, response);
                     
-                    
-//                if (userName == null) {
-//                    url = "/index";
-//                } else {
-//                    url = "/Login";
-//                }
+                                       
                     break;
-                case "REGRISTER":
+                case "REGISTER":
+                    String username=request.getParameter("username");
+                    String pwd=request.getParameter("password");
+                    String confirmpwd=request.getParameter("confirmpwd");
+                    String email=request.getParameter("email");
+                    String username_err="",password_err="",email_err="";
+                    if(email.equals("")){
+                        email_err="Email khong duoc de trong.";
+                    }
+                      if(usrQuery.checkEmail(email))
+                    {
+                       email_err="Email da ton tai!!!";
+                    }
+                    if(usrQuery.checkUsername(username))
+                    {
+                        username_err="Ten dang nhap da ton tai, vui long chon ten khac!!!";
+                    }
+                    if(email_err.length()>0)
+                    {
+                        request.setAttribute("email_err",email_err );
+                    }
+                     if(username.equals("")){
+                        username_err="Ten dang nhap khong duoc de trong.";
+                    }
+                    if(username_err.length()>0)
+                    {
+                        request.setAttribute("username_err",username_err );
+                    }
+                     if(pwd.length()<6){
+                        password_err="Mat khau cua ban phai hon 6 ki tu.";
+                    }
+                    if(password_err.length()>0)
+                    {
+                        request.setAttribute("password_err",password_err );
+                    }
+                  
+                    user=new User(username,pwd,email);
+                  
+                    if(usrQuery.checkUser(user)==false&&password_err.length()==0&&username_err.length()==0&&email_err.length()==0) 
+                   {
+                       usrQuery.signUpUser(user);   
+                       url="/Login";                       
+                   }
+                   else 
+                   {
+                       url="/Signup";
+                   }                   
+                    break;
+                default:
                     break;
             }
+            RequestDispatcher dis = request.getRequestDispatcher(url);
+             dis.forward(request, response);
         } catch (SQLException ex) {
             Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {

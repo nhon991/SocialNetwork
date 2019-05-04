@@ -35,12 +35,12 @@ public class message_query {
         try {
             props.load(instr);
         } catch (IOException ex) {
-            Logger.getLogger(friend_query.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(message_query.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
             instr.close();
         } catch (IOException ex) {
-            Logger.getLogger(friend_query.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(message_query.class.getName()).log(Level.SEVERE, null, ex);
         }
         String driver = props.getProperty("driver.name");
         String url = props.getProperty("server.name");
@@ -50,18 +50,18 @@ public class message_query {
         try {
             Class.forName(driver);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(friend_query.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(message_query.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
             conn = (Connection) DriverManager.getConnection(url, username, password);
         } catch (SQLException ex) {
-            Logger.getLogger(friend_query.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(message_query.class.getName()).log(Level.SEVERE, null, ex);
         }
 }
         public boolean addMessage(message mess) throws SQLException
         {
-            String sql="INSERT INTO `socialnetworkdb`.`message` ( `content`, `receiver_id`, `senter_id`, `sent_time`) VALUES ( ?, ?, ?, ?);";
-            PreparedStatement ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+        String sql="INSERT INTO `socialnetworkdb`.`message` ( `content`, `receiver_id`, `senter_id`, `sent_time`) VALUES ( ?, ?, ?, ?);";
+        PreparedStatement ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
         Date dat = new Date();
         SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         ps.setString(1, mess.getContent());
