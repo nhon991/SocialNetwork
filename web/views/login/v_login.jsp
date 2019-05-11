@@ -9,6 +9,7 @@
     <body>
         <div class="container">
             <div class="row">
+
                 <div class="col-md-5 mx-auto">
                 <div class="myform">
                     <div class="logo mb-3">
@@ -17,6 +18,7 @@
                             </div>
                     </div>
                     <form action="user" method="post">
+
                         
                         <div class="form-group">
                             <label for="username">User-name:</label>
@@ -35,8 +37,10 @@
                             </label>
                         </div>
                         <div class="col-md-12 text-center ">
-                            <button type="submit"  class="btn btn-block btn-primary" onclick="loginVal()">Login</button>
-                             <input name="command" value="LOGIN" type="hidden">
+
+                            <button type="submit" class="btn btn-block btn-primary" onclick="loginVal()">Login</button>
+                            <input name="command" value="LOGIN" type="hidden">
+
                         </div>
                         <div class="col-md-12">
                                 <div class="login-or">
@@ -45,6 +49,7 @@
                                 </div>
                         </div>
                         <div class="form-group">
+
                             <p class="text-center">Don't have account? <a href="/SocialNetwork/Signup" id="signup">Sign up here</a></p>
                         </div>
                     </form>
