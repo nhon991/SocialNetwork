@@ -17,4 +17,12 @@
 } else if (view == "views/signup/v_signup.jsp") {
 %>
 <%@include file = "../views/signup/v_signup.jsp" %>
+<%
+} else if (view == "views/SearchUser.jsp") {
+%>
+<%@include file = "../views/SearchUser.jsp" %>
+<%
+} else if (view == "views/UserInfo.jsp") {
+%>
+<%@include file = "../views/UserInfo.jsp" %>
 <%}%>

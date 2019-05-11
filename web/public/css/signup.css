@@ -1,13 +1,42 @@
 body{
     padding-top: 4rem;
     padding-bottom: 4rem;
-
+    background-image: url("public/images/backg.jpg")
+}
+.lform{
+    border-radius: 1rem;
+    border: 1px solid rgba(0,0,0,.2);
+    padding: 0;
+    background-color: whitesmoke;
+    opacity: 0.95;
 }
 
+.top-bar{
+    padding-top:40px;
+    border-top: 1px solid rgba(0,0,0,.2);
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    width: 100%;
+    float: left;
+    background-color: red;
+}
+
+.logo-pic{
+    width: 130px;
+	height: 130px;
+	margin: 0 auto;
+	margin-bottom: -65px;
+}
+.logo-pic img{
+    float: none;
+	border: 5px solid #fff;
+	border-radius: 50px;
+	width: 100%;
+}
 .myform{
-    position: relative;
+    margin-top: 25px;
+    width: 100%;
     padding: 1rem;
-    border: 1px solid rgba(0,0,0,.2);
-    border-radius: 1rem;
+    float: left;
     max-width: 500px;
 }

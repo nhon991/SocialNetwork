@@ -92,7 +92,10 @@ public class UserController extends HttpServlet {
                    
                     user = usrQuery.loginUser(userName, password);
                     if (user!=null) {
+                        session.setAttribute("user", user);
+//                        session.setAttribute("userid", user.getUser_id());
                         url = "/index";
+                        getServletContext().setAttribute("userid", user.getUser_id());
                     }
                     else{
                         url = "/Login";
@@ -135,7 +138,7 @@ public class UserController extends HttpServlet {
                     {
                         request.setAttribute("password_err",password_err );
                     }
-                  
+                    
                     user=new User(username,pwd,email);
                   
                     if(usrQuery.checkUser(user)==false&&password_err.length()==0&&username_err.length()==0&&email_err.length()==0) 

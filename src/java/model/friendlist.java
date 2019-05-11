@@ -10,63 +10,39 @@ package model;
  * @author BaoPhuc
  */
 public class friendlist {
-    private int friendlist_id;
-    private int user_id;
-    private String friend_name;
-    private String user_name;
-    private int status;
+   private int From_id;
+   private int To_id;
+   private int Friendlist_id;
 
-    public friendlist(int friendlist_id, int user_id, String friend_name, String user_name, int status) {
-        this.friendlist_id = friendlist_id;
-        this.user_id = user_id;
-        this.friend_name = friend_name;
-        this.user_name = user_name;
-        this.status = status;
+    public friendlist(int From_id, int To_id, int Friendlist_id) {
+        this.From_id = From_id;
+        this.To_id = To_id;
+        this.Friendlist_id = Friendlist_id;
+    }
+
+    public int getFrom_id() {
+        return From_id;
+    }
+
+    public void setFrom_id(int From_id) {
+        this.From_id = From_id;
+    }
+
+    public int getTo_id() {
+        return To_id;
+    }
+
+    public void setTo_id(int To_id) {
+        this.To_id = To_id;
     }
 
     public int getFriendlist_id() {
-        return friendlist_id;
+        return Friendlist_id;
     }
 
-    public void setFriendlist_id(int friendlist_id) {
-        this.friendlist_id = friendlist_id;
+    public void setFriendlist_id(int Friendlist_id) {
+        this.Friendlist_id = Friendlist_id;
     }
-
-    public int getUser_id() {
-        return user_id;
-    }
-
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
-    }
-
-    public String getFriend_name() {
-        return friend_name;
-    }
-
-    public void setFriend_name(String friend_name) {
-        this.friend_name = friend_name;
-    }
-
-    public String getUser_name() {
-        return user_name;
-    }
-
-    public void setUser_name(String user_name) {
-        this.user_name = user_name;
-    }
-
-    public int getStatus() {
-        return status;
-    }
-
-    public void setStatus(int status) {
-        this.status = status;
-    }
-
-    @Override
-    public String toString() {
-        return "friendlist{" + "friendlist_id=" + friendlist_id + ", user_id=" + user_id + ", friend_name=" + friend_name + ", user_name=" + user_name + ", status=" + status + '}';
-    }
+   
     
 }

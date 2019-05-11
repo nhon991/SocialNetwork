@@ -7,20 +7,26 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.servlet.RequestDispatcher;
+import DAO.user_dao_query;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import model.User;
 
 /**
  *
  * @author admin
  */
-@WebServlet(name = "Logout", urlPatterns = {"/Logout"})
-public class Logout extends HttpServlet {
+@WebServlet(name = "SearchUser", urlPatterns = {"/SearchUser"})
+public class SearchUser extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,13 +42,13 @@ public class Logout extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
+            out.println("<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 3.2 Final//EN\">");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Logout</title>");            
+            out.println("<title>Servlet SearchUser</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet Logout at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet SearchUser at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -63,33 +69,35 @@ public class Logout extends HttpServlet {
         doPost(request, response);
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session=request.getSession();
-        session.removeAttribute("user");
-        String url="Login";
-        RequestDispatcher rd=request.getRequestDispatcher(url);
-        rd.forward(request, response);
+        ArrayList<User> UserList=new ArrayList<>();
+        String url="";
+        String view="views/SearchUser.jsp";
+        String name_search=(String) request.getParameter("search");
+        try {
+            user_dao_query user_query= new user_dao_query();
+            UserList=user_query.searchUserByName(name_search);
+        } catch (SQLException ex) {
+            Logger.getLogger(SearchUser.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(SearchUser.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        url="/views/SearchUser.jsp";
+        request.setAttribute("view", view);
+        request.setAttribute("namesearch", name_search);
+        request.setAttribute("UserList",UserList);
+        RequestDispatcher dis =request.getRequestDispatcher(url);
+        dis.forward(request, response);
+        
+        
+        
         
     }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
+ 
 
 }

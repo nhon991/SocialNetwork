@@ -7,20 +7,23 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import org.jboss.weld.servlet.SessionHolder;
+import javax.servlet.http.HttpSession;
+import org.jboss.weld.servlet.SessionHolder;
+import model.User;
+import DAO.user_dao_query;
+import javax.servlet.RequestDispatcher;
 /**
  *
  * @author admin
  */
-@WebServlet(name = "Logout", urlPatterns = {"/Logout"})
-public class Logout extends HttpServlet {
+@WebServlet(name = "UserInfo", urlPatterns = {"/UserInfo"})
+public class UserInfo extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,13 +39,13 @@ public class Logout extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
+            out.println("<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 3.2 Final//EN\">");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Logout</title>");            
+            out.println("<title>Servlet UserInfo</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet Logout at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet UserInfo at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -74,12 +77,12 @@ public class Logout extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session=request.getSession();
-        session.removeAttribute("user");
-        String url="Login";
-        RequestDispatcher rd=request.getRequestDispatcher(url);
-        rd.forward(request, response);
-        
+       int userid=Integer.parseInt(request.getParameter("userid"));
+       String url="views/UserInfo.jsp";
+       String views="views/UserInfo.jsp";
+       request.setAttribute("userid", userid);
+       RequestDispatcher rd=request.getRequestDispatcher(url);
+       rd.forward(request, response);
     }
 
     /**

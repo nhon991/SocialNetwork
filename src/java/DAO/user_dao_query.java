@@ -98,20 +98,22 @@ public class user_dao_query {
         }
         return false;
     }
-    public boolean checkUsername(String username) throws SQLException{
+
+    public boolean checkUsername(String username) throws SQLException {
         String sql = "SELECT * FROM socialnetworkdb.user as us where us.user_name=?";
         PreparedStatement ps = conn.prepareStatement(sql);
-        ps.setString(1,username);
+        ps.setString(1, username);
         this.results = ps.executeQuery();
         if (this.results.next()) {
             return true;
         }
         return false;
     }
-    public boolean checkEmail(String email) throws SQLException{
+
+    public boolean checkEmail(String email) throws SQLException {
         String sql = "SELECT * FROM socialnetworkdb.user as us where us.email=?";
         PreparedStatement ps = conn.prepareStatement(sql);
-        ps.setString(1,email);
+        ps.setString(1, email);
         this.results = ps.executeQuery();
         if (this.results.next()) {
             return true;
@@ -201,11 +203,62 @@ public class user_dao_query {
         this.results = ps.executeQuery();
     }
 
+    public ArrayList<User> searchUserByName(String name) throws SQLException {
+        
+        ArrayList<User> UserList = new ArrayList<>();
+        String sql = "SELECT * FROM socialnetworkdb.user where concat_ws(' ', first_name, last_name)=? ";
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setString(1, name);
+        this.results = ps.executeQuery();
+        while(results.next()){
+        User us = new User();   
+        us.setUser_id(this.results.getInt("user_id"));
+        us.setUsername(this.results.getString("user_name"));
+        us.setPassword(this.results.getString("password"));
+        us.setFirst_name(this.results.getString("first_name"));
+        us.setLast_name(this.results.getString("last_name"));
+        us.setDate_of_birth(this.results.getString("date_of_birth"));
+        us.setAvatar(this.results.getString("avatar"));
+        us.setGender(this.results.getInt("gender"));
+        us.setCountry(this.results.getString("country"));
+        us.setHobby(this.results.getString("hobby"));
+        us.setPhone(this.results.getString("phone"));
+        us.setEmail(this.results.getString("email"));
+        UserList.add(us);
+        }
+        return UserList;
+       
+    }
+      public User searchUserByUserID(int userid) throws SQLException {
+        
+        User us =new User();
+        String sql = "SELECT * FROM socialnetworkdb.user where user_id=? ";
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setInt(1, userid);
+        this.results = ps.executeQuery();
+        while(results.next()){ 
+        us.setUser_id(this.results.getInt("user_id"));
+        us.setUsername(this.results.getString("user_name"));
+        us.setPassword(this.results.getString("password"));
+        us.setFirst_name(this.results.getString("first_name"));
+        us.setLast_name(this.results.getString("last_name"));
+        us.setDate_of_birth(this.results.getString("date_of_birth"));
+        us.setAvatar(this.results.getString("avatar"));
+        us.setGender(this.results.getInt("gender"));
+        us.setCountry(this.results.getString("country"));
+        us.setHobby(this.results.getString("hobby"));
+        us.setPhone(this.results.getString("phone"));
+        us.setEmail(this.results.getString("email"));
+        
+        }
+        return us;
+       
+    }
+
     public static void main(String[] args) throws SQLException, ClassNotFoundException, IOException {
         user_dao_query user_query = new user_dao_query();
-        User usrr = new user_dao_query().loginUser("nbp123", "12345");
-        System.out.println(usrr);
+        //User usrr=user_query.searchUserByName("nguyen phuc");
+        //System.out.println(usrr);
 
     }
 }
-

@@ -46,7 +46,7 @@ public class User {
         this.first_name="";
         this.last_name="";
         this.date_of_birth="1970-1-1";
-        this.avatar="";
+        this.avatar="public/images/default_avatar.png";
         this.country="";
         this.hobby="";
         this.phone=""; 
