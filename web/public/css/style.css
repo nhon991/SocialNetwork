@@ -5358,7 +5358,7 @@ a:hover {
     font-family: "Freight Sans", Helvetica;
     font-size: 40px;
     line-height: 48px;
-    padding: 0px 0px 19px;
+    padding: 0px 0px 19px 10px;
 }
 .det{
     font-size: 18px;
@@ -5371,4 +5371,14 @@ a:hover {
     font-size: 18px;
     line-height: 28px;
     padding: 39px 69px 0px 46px;
+}
+.feb{
+    width: 1300px;
+    padding: 10px 200px;
+    margin: 0px auto;
+}
+.febt{
+    font-size: 20px;
+    line-height: 20px;
+    padding: 10px 69px 0px 46px;
 }
