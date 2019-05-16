@@ -5356,3 +5356,22 @@ a:hover {
 .widget-feat ul li i.fa-eye {
 	color: #00b540;
 }
+.tit{
+    color: hsl(168, 54%, 42%);
+    font-family: "Freight Sans", Helvetica;
+    font-size: 40px;
+    line-height: 48px;
+    padding: 0px 0px 19px;
+}
+.det{
+    font-size: 18px;
+    line-height: 28px;
+    padding: 39px 69px 0px 46px;
+}
+.de{
+    font-weight: 700;
+    line-height: 24px;
+    font-size: 18px;
+    line-height: 28px;
+    padding: 39px 69px 0px 46px;
+}
