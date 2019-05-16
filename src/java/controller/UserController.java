@@ -93,7 +93,7 @@ public class UserController extends HttpServlet {
                     user = usrQuery.loginUser(userName, password);
                     if (user!=null) {
                         session.setAttribute("user", user);
-//                        session.setAttribute("userid", user.getUser_id());
+                        session.setAttribute("user_id", user.getUser_id());
                         url = "/index";
                         getServletContext().setAttribute("userid", user.getUser_id());
                     }

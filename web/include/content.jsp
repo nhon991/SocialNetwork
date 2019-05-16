@@ -25,4 +25,12 @@
 } else if (view == "views/UserInfo.jsp") {
 %>
 <%@include file = "../views/UserInfo.jsp" %>
+<%
+} else if (view == "views/FollowList.jsp") {
+%>
+<%@include file = "../views/FollowList.jsp" %>
+<%
+} else if (view == "rungame/game.jsp") {
+%>
+<%@include file = "../rungame/index.html" %>
 <%}%>

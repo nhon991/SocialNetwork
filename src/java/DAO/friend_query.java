@@ -17,6 +17,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.friendlist;
 import model.User;
+import java.util.ArrayList;
 /**
  *
  * @author Administrator
@@ -56,33 +57,6 @@ public class friend_query {
         }
     }
     
-    /*public boolean addfriend(String us1_name, String us2_name, friendlist fr) throws SQLException{
-        String sql1 ="SELECT `user_id` FROM `social_network`.`user` WHERE `user_name` = `?` ";
-        PreparedStatement id1 = conn.prepareStatement(sql1);
-        PreparedStatement id2 = conn.prepareStatement(sql1);
-        id1.setString(1, us1_name);
-        id2.setString(1, us2_name);
-        ResultSet rs1 = id1.executeQuery(sql1);
-        ResultSet rs2= id2.executeQuery(sql1);
-        
-        String sql = "INSERT INTO `social_network`.`friendlist` (`id_user`,`id_friend`,`user_name`,`friend_name`) VALUES (?, ?, ?, ?)";
-            PreparedStatement ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            this.results = ps.getGeneratedKeys();
-            ps.setInt(1, rs1.getInt("user_id"));
-            ps.setInt(2, rs2.getInt("user_id"));
-            ps.setString(3, us1_name);
-            ps.setString(4, us2_name);
-            ps.executeUpdate();
-            this.results = ps.getGeneratedKeys();
-            int key = 0;
-            if (this.results.next()) {
-                key = this.results.getInt(1);
-                fr.setFriendlist_id(key);
-                return true;
-            }
-            return false;
-    }*/
-    
     public void addfriend(User us1, User us2) throws SQLException{
         
             String sql = "INSERT INTO `socialnetworkdb`.`friendlist` ( `from_id`, `to_id`) VALUES ( ?, ?);";
@@ -100,7 +74,6 @@ public class friend_query {
         
             String sql = "INSERT INTO `socialnetworkdb`.`friendlist` ( `from_id`, `to_id`) VALUES ( ?, ?);";
             PreparedStatement ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            this.results = ps.getGeneratedKeys();
             ps.setInt(1, From_ID);
             ps.setInt(2, To_ID);
             ps.executeUpdate();
@@ -128,19 +101,68 @@ public class friend_query {
         public boolean isFriend(int from_id, int to_id) throws SQLException{
             String sql="SELECT * FROM socialnetworkdb.friendlist where to_id=? and from_id=?";
             PreparedStatement ps=conn.prepareStatement(sql);
-            ps.setInt(1, from_id);
-            ps.setInt(2, to_id);
+            ps.setInt(2, from_id);
+            ps.setInt(1, to_id);
             this.results=ps.executeQuery();
            if(results.next()) return true;
            else return false;
         }
+        public ArrayList<User> searchFollowingByID(int user_id) throws SQLException {
+        
+        ArrayList<User> UserList = new ArrayList<>();
+        String sql = "SELECT * FROM socialnetworkdb.friendlist as fl, socialnetworkdb.user as us where fl.to_id=us.user_id and us.user_id=? ";
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setInt(1, user_id);
+        this.results = ps.executeQuery();
+        while(results.next()){
+        User us = new User();   
+        us.setUser_id(this.results.getInt("user_id"));
+        us.setUsername(this.results.getString("user_name"));
+        us.setPassword(this.results.getString("password"));
+        us.setFirst_name(this.results.getString("first_name"));
+        us.setLast_name(this.results.getString("last_name"));
+        us.setDate_of_birth(this.results.getString("date_of_birth"));
+        us.setAvatar(this.results.getString("avatar"));
+        us.setGender(this.results.getInt("gender"));
+        us.setCountry(this.results.getString("country"));
+        us.setHobby(this.results.getString("hobby"));
+        us.setPhone(this.results.getString("phone"));
+        us.setEmail(this.results.getString("email"));
+        UserList.add(us);
+        }
+        return UserList;
+       
+    }
+         public ArrayList<User> searchFollowedByID(int user_id) throws SQLException {
+        
+        ArrayList<User> UserList = new ArrayList<>();
+        String sql = "SELECT * FROM socialnetworkdb.friendlist as fl, socialnetworkdb.user as us where fl.from_id=us.user_id and us.user_id=? ";
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setInt(1, user_id);
+        this.results = ps.executeQuery();
+        while(results.next()){
+        User us = new User();   
+        us.setUser_id(this.results.getInt("user_id"));
+        us.setUsername(this.results.getString("user_name"));
+        us.setPassword(this.results.getString("password"));
+        us.setFirst_name(this.results.getString("first_name"));
+        us.setLast_name(this.results.getString("last_name"));
+        us.setDate_of_birth(this.results.getString("date_of_birth"));
+        us.setAvatar(this.results.getString("avatar"));
+        us.setGender(this.results.getInt("gender"));
+        us.setCountry(this.results.getString("country"));
+        us.setHobby(this.results.getString("hobby"));
+        us.setPhone(this.results.getString("phone"));
+        us.setEmail(this.results.getString("email"));
+        UserList.add(us);
+        }
+        return UserList;
+       
+    }
         public static void main(String[] args) throws SQLException, ClassNotFoundException, IOException {
         friend_query fri=new friend_query();
-        int a=fri.countFollowed(1);
-        int b=fri.countFollowing(1);
-            System.out.println(a);
-            System.out.println(b);
-
+        boolean test= fri.isFriend(1, 8);
+        if(test) System.out.println("Dung");
     }
        
     

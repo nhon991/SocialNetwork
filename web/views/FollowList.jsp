@@ -6,10 +6,13 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="model.User"%>
 <%@page import="DAO.user_dao_query"%>
+<%@page import="DAO.friend_query"%>
 <%
+    User user=(User) session.getAttribute("user");
     ArrayList<User> UserList=new ArrayList<User>();
-    UserList=(ArrayList<User>) request.getAttribute("UserList");
-
+    friend_query fq=new friend_query();
+    UserList=fq.searchFollowingByID(user.getUser_id());
+    
     %>
 
 <!DOCTYPE html>

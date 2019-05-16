@@ -5,28 +5,28 @@
  */
 package controller;
 
-import DAO.friend_query;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.post;
+import DAO.post_query;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.http.HttpSession;
 import model.User;
-import model.friendlist;
 import javax.servlet.RequestDispatcher;
 
 /**
  *
- * @author Administrator
+ * @author admin
  */
-@WebServlet(name = "addFriend", urlPatterns = {"/addFriend"})
-public class addFriend extends HttpServlet {
+@WebServlet(name = "addNewPost", urlPatterns = {"/addNewPost"})
+public class addNewPost extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -45,10 +45,10 @@ public class addFriend extends HttpServlet {
             out.println("<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 3.2 Final//EN\">");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet addFriend</title>");            
+            out.println("<title>Servlet addNewPost</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet addFriend at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet addNewPost at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -80,34 +80,27 @@ public class addFriend extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         HttpSession session = request.getSession();
-        User usr = (User) session.getAttribute("user");
-        int to_id = Integer.parseInt(request.getParameter("to_id"));
+       HttpSession session =request.getSession();
+       User user=(User) session.getAttribute("user");
+       String content=(String) request.getParameter("post_content");
+       post pst=new post();
+       pst.setContent(content);
+       pst.setUser_id(user.getUser_id());
+       pst.setImage_content("public/images/meal.jpg");
+       post_query post_query=new post_query();
         try {
-        friend_query frQuery = new friend_query();
-        int from_id = usr.getUser_id();
-        if(frQuery.isFriend(from_id, to_id)==false){
-        frQuery.addfriendByID(from_id, to_id);
-        }
+            post_query.addPost(pst);
         } catch (SQLException ex) {
-            Logger.getLogger(addFriend.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(addNewPost.class.getName()).log(Level.SEVERE, null, ex);
         }
-        String url="/index";
-        RequestDispatcher rd=request.getRequestDispatcher(url);
+        String url="index";
+        RequestDispatcher rd =request.getRequestDispatcher(url);
         rd.forward(request, response);
         
         
-        
+               
+       
     }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
+  
 }

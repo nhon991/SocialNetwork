@@ -5,28 +5,28 @@
  */
 package controller;
 
-import DAO.friend_query;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import model.User;
-import model.friendlist;
 import javax.servlet.RequestDispatcher;
+import model.User;
+import DAO.friend_query;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
- * @author Administrator
+ * @author admin
  */
-@WebServlet(name = "addFriend", urlPatterns = {"/addFriend"})
-public class addFriend extends HttpServlet {
+@WebServlet(name = "FollowingList", urlPatterns = {"/FollowingList"})
+public class FollowingList extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -45,10 +45,10 @@ public class addFriend extends HttpServlet {
             out.println("<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 3.2 Final//EN\">");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet addFriend</title>");            
+            out.println("<title>Servlet FollowingList</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet addFriend at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet FollowingList at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -67,6 +67,7 @@ public class addFriend extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         doPost(request, response);
+        
     }
 
     /**
@@ -80,24 +81,21 @@ public class addFriend extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         HttpSession session = request.getSession();
-        User usr = (User) session.getAttribute("user");
-        int to_id = Integer.parseInt(request.getParameter("to_id"));
+        HttpSession session=request.getSession();
+        User user=(User) session.getAttribute("user");
+        friend_query fq= new friend_query();
+        ArrayList<User> UserList=null;
         try {
-        friend_query frQuery = new friend_query();
-        int from_id = usr.getUser_id();
-        if(frQuery.isFriend(from_id, to_id)==false){
-        frQuery.addfriendByID(from_id, to_id);
-        }
+            UserList = fq.searchFollowingByID(user.getUser_id());
         } catch (SQLException ex) {
-            Logger.getLogger(addFriend.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FollowingList.class.getName()).log(Level.SEVERE, null, ex);
         }
-        String url="/index";
+        request.setAttribute("UserList", UserList);
+        String view="views/FollowList.jsp";
+        String url="views/FollowList.jsp";
+        request.setAttribute("view", view);
         RequestDispatcher rd=request.getRequestDispatcher(url);
         rd.forward(request, response);
-        
-        
-        
     }
 
     /**

@@ -10,7 +10,7 @@
 			<div class="container">
 				<div class="header-data">
 					<div class="logo">
-						<a href="index.html" title=""><img src="public/images/logo.png" alt=""></a>
+						<a href="index" title=""><img src="public/images/logo.png" alt=""></a>
 					</div><!--logo end-->
 					<div class="search-bar">
 						<form method="post" action="SearchUser">
@@ -21,15 +21,15 @@
 					<nav>
 						<ul>
 							<li>
-								<a href="index.html" title="">
+								<a href="index" title="">
 									<span><img src="images/icon1.png" alt=""></span>
 									Home
 								</a>
 							</li>
 							<li>
-								<a href="playGame" title="">
+								<a href="Restaurant.html" title="">
 									<span><img src="images/icon5.png" alt=""></span>
-									Play Game
+									Restaurant
 								</a>
 							</li>
 							<li>
